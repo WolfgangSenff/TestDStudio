@@ -1,0 +1,12 @@
+config_version=5
+
+[application]
+
+config/name="Multiplayer Card Game"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+
+[autoload]
+
+NetworkManager="*res://scripts/NetworkManager.gd"
+GameManager="*res://scripts/GameManager.gd"
