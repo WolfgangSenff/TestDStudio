@@ -1,19 +1,28 @@
-extends Sprite2D
+extends Control
 
-var is_dragging: bool = false
+# Static variable ensures only one card is tracked across all instances
+static var dragging_card: Control = null
+
 var drag_offset: Vector2 = Vector2.ZERO
 
-func _input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				# Check if mouse is over the sprite
-				if get_rect().has_point(to_local(event.global_position)):
-					is_dragging = true
-					drag_offset = global_position - event.global_position
-			else:
-				is_dragging = false
+				# Only allow drag if no other card is currently being dragged
+				if dragging_card == null:
+					dragging_card = self
+					drag_offset = get_global_mouse_position() - global_position
+					
+					# Bring to front
+					z_index = 100
+					raise()
+			elif dragging_card == self:
+				# Release the drag state
+				dragging_card = null
+				z_index = 0
 
 func _process(_delta: float) -> void:
-	if is_dragging:
-		global_position = get_global_mouse_position() + drag_offset
+	if dragging_card == self:
+		# Follow the mouse
+		global_position = get_global_mouse_position() - drag_offset
