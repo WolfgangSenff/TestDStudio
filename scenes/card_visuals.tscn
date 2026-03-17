@@ -1,0 +1,20 @@
+[gd_scene load_steps=1 format=3 uid="uid://c7x4h6j7u8p2q"]
+
+[node name="CardVisuals" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 140.0
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 140.0
+color = Color(0.15, 0.15, 0.2, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 23.0
+text = "Card Visual"
+horizontal_alignment = 1
