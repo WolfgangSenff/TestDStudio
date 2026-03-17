@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_script"]
+
+[node name="Card" type="TextureRect"]
+custom_minimum_size = Vector2(250, 350)
+offset_right = 250.0
+offset_bottom = 350.0
+script = ExtResource("1_script")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftIcons" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="MainContent" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleLabel" type="Label" parent="HBox/MainContent"]
+layout_mode = 2
+text = "Card Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Illustration" type="TextureRect" parent="HBox/MainContent"]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DescriptionLabel" type="Label" parent="HBox/MainContent"]
+layout_mode = 2
+text = "This is the card description area where the abilities and effects are listed."
+autowrap_mode = 2
